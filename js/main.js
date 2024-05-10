@@ -8,6 +8,13 @@ console.log('ciao mondo');
 // variabile per tenere traccia del numero attualmente visualizzato
 let currentNumber = ""; 
 
+// variabile per memorizzare l'operatore selezionato
+let operatore = "";
+
+// variabile per memorizzare il primo operando
+let primoOperando = "";
+
+
 // seleziona tutti i pulsanti numerici 
 const numbers = document.querySelectorAll(".numbers button");
 
@@ -29,3 +36,23 @@ function selectNumber() {
     // aggiornamento del risultato risultato visualizzato
     result.innerText = currentNumber; 
 }
+
+
+// seleziono tutti i pulsanti degli operatori tranne c
+const operatori = document.querySelectorAll(".operators button:not(.orange)");
+
+// aggiungo un event listener a ogni pulsante operatore
+for(let i = 0; i < operatori.length; i++){
+    operatori[i].addEventListener("click", function(){
+        const operatoreSelezionato = this.innerText;
+
+        operatore = operatoreSelezionato;
+        primoOperando = currentNumber;
+
+        currentNumber = "";
+        result.innerText = "0";
+
+    })
+}
+
+
