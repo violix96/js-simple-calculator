@@ -6,7 +6,7 @@
 console.log('ciao mondo');
 
 // variabile per tenere traccia del numero attualmente visualizzato
-let currentNumber = ""; 
+let currentNumber = "";
 
 // variabile per memorizzare l'operatore selezionato
 let operatore = "";
@@ -31,19 +31,18 @@ function selectNumber() {
     const numberValue = this.innerText;
 
     // concateniamo il numero cliccato a quello attuale
-    currentNumber += numberValue; 
+    currentNumber += numberValue;
 
     // aggiornamento del risultato risultato visualizzato
-    result.innerText = currentNumber; 
+    result.innerText = currentNumber;
 }
-
 
 // seleziono tutti i pulsanti degli operatori tranne c
 const operatori = document.querySelectorAll(".operators button:not(.orange)");
 
 // aggiungo un event listener a ogni pulsante operatore
-for(let i = 0; i < operatori.length; i++){
-    operatori[i].addEventListener("click", function(){
+for (let i = 0; i < operatori.length; i++) {
+    operatori[i].addEventListener("click", function () {
         const operatoreSelezionato = this.innerText;
 
         operatore = operatoreSelezionato;
@@ -55,4 +54,44 @@ for(let i = 0; i < operatori.length; i++){
     })
 }
 
+
+
+// seleziono il pulsante = 
+
+const bottoneUguale = document.querySelector(".orange");
+
+// aggiungo un event listener al pulsante = 
+
+bottoneUguale.addEventListener("click", function () {
+    const secondoOperando = currentNumber;
+    
+
+    // calcolo in base all'operatore scelto 
+    let risultato;
+
+    // eseguo un console.log per copiarmi il carattere dell'entity code, dalla console del browser, da inserire nello switch case
+    console.log (operatore);
+
+    switch (operatore) {
+        case ("+"):
+            risultato = parseInt(primoOperando) + parseInt(secondoOperando);
+            break;
+        case ("-"):
+            risultato = parseInt(primoOperando) - parseInt(secondoOperando);
+            break;
+        case ("×"):
+            risultato = parseInt(primoOperando) * parseInt(secondoOperando);
+            break;
+        case ("÷"):
+            risultato = parseInt(primoOperando) / parseInt(secondoOperando);
+            break;
+    }
+
+    result.innerText = risultato;
+
+    // svuota le variabili per il prossimo calcolo
+    currentNumber = "";
+    primoOperando = "";
+    operatore = "";
+})
 
