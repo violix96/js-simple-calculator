@@ -64,13 +64,13 @@ const bottoneUguale = document.querySelector(".orange");
 
 bottoneUguale.addEventListener("click", function () {
     const secondoOperando = currentNumber;
-    
+
 
     // calcolo in base all'operatore scelto 
     let risultato;
 
     // eseguo un console.log per copiarmi il carattere dell'entity code, dalla console del browser, da inserire nello switch case
-    console.log (operatore);
+    console.log(operatore);
 
     switch (operatore) {
         case ("+"):
@@ -94,4 +94,21 @@ bottoneUguale.addEventListener("click", function () {
     primoOperando = "";
     operatore = "";
 })
+
+// seleziono il pulsante c
+
+const bottoneC = document.querySelector(".operators button.orange");
+
+// aggiungo un event listener al pulsante c 
+bottoneC.addEventListener("click", function () {
+    //  reset di tutte le variabili
+    currentNumber = "";
+    primoOperando = "";
+    operatore = "";
+    result.innerText ="0";
+})
+
+
+
+
 
